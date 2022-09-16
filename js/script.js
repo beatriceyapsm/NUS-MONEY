@@ -8,7 +8,6 @@ function monthlycontButton() {
 function dashboardButton() {
     location.href = "/dashboard.html"
 }
-
 function savehouseButton() {
     location.href = "/savehouse.html"
 }
