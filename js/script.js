@@ -16,3 +16,17 @@ function savehouseButton() {
 function homeIconClick() {
     location.href = "/index.html"
 }
+
+//Add name
+function renderUser(e) {
+    $.getJSON('https://nus-money.herokuapp.com/user/1', function (data) {
+      // JSON result in `data` variable
+  
+      var userName = data.FirstName;
+  
+
+      $(".userName").html(userName);
+    });
+  }
+
+userName.addEventListener('load', renderUser);
