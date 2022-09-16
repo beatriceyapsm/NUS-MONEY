@@ -18,15 +18,17 @@ function homeIconClick() {
 }
 
 //Add name
-function renderUser(e) {
+
+
+function renderUser() {
     $.getJSON('https://nus-money.herokuapp.com/user/1', function (data) {
       // JSON result in `data` variable
   
-      var userName = data.FirstName;
-  
-
-      $(".userName").html(userName);
+      var FirstName = data[0].FirstName;
+        
+        $(".userName").html(FirstName);
     });
   }
 
-userName.addEventListener('load', renderUser);
+  addEventListener("load", renderUser);
+
