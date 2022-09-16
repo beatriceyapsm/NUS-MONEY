@@ -34,5 +34,5 @@ const myChart = new Chart(
 
 //Redirect click on icon to welcome page
 function homeIconClick() {
-  location.href = "/frontend/welcome.html"
+  location.href = "/index.html"
 }

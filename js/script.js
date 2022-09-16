@@ -15,5 +15,5 @@ function savehouseButton() {
 
 //Redirect click on icon to welcome page
 function homeIconClick() {
-    location.href = "/welcome.html"
+    location.href = "/index.html"
 }
