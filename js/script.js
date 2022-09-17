@@ -21,7 +21,7 @@ function homeIconClick() {
 
 
 function renderUser() {
-    $.getJSON.parse('https://nus-money.herokuapp.com/user', function (data) {
+    $.getJSON('https://nus-money.herokuapp.com/user', function (data) {
       // JSON result in `data` variable
   
       var FirstName = data.FirstName;
