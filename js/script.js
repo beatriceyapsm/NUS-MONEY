@@ -24,7 +24,7 @@ function renderUser() {
     $.getJSON('https://nus-money.herokuapp.com/user', function (data) {
       // JSON result in `data` variable
   
-      var FirstName = data.FirstName;
+      var FirstName = data.given_name;
         
         $(".userName").html(FirstName);
     });
