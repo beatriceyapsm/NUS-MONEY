@@ -16,21 +16,23 @@ $(function () {
         // cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="Account Name"></td>';
         // cols += '<td><input class="form-control rounded-0" type="number" name="lastname" placeholder="Balance"></td>';
         // cols += '<td><button class="btn btn-danger rounded-0" id ="deleteRow"><i class="fa fa-trash"></i></button</td>';
-        cols += '<td>';
-        cols += '<select class="form-control" name="Bank" id="bank">';
-        cols += '<option value="select">Select</option>';
-        cols += '<option value="dbs">DBS Bank</option>';
-        cols += '<option value="uob">UOB</option>';
-        cols += '<option value="citi">Citibank</option>';
-        cols += '<option value="maybank">Maybank</option>';
-        cols += '<option value="scb">Standard Chartered</option>';
-        cols += '<option value="sbi">SBI</option>';
-        cols += '<option value="cimb">CIMB</option>';
-        cols += '<option value="ocbc">OCBC</option>';
-        cols += '</select></td>';
-        cols += '<td><input type="number" class="form-control" placeholder="xxx-xx-xxx" aria-label="Account number"></td>';
-        cols += '<td ><input type="number" class="form-control" placeholder="$" aria-label="Balance" name="balance"></td>';
-        cols += '<td><button class="btn btn-danger rounded-0" id ="deleteRow"><i class="fa fa-trash"></i></button</td>';
+
+        cols += `<td>
+        <select class="form-control" name="Bank" id="bank">
+        <option value="select">Select</option>
+        <option value="dbs">DBS Bank</option>
+        <option value="uob">UOB</option>
+        <option value="citi">Citibank</option>
+        <option value="maybank">Maybank</option>
+        <option value="scb">Standard Chartered</option>
+        <option value="sbi">SBI</option>
+        <option value="cimb">CIMB</option>
+        <option value="ocbc">OCBC</option>
+        </select>
+        </td>
+        <td><input type="number" class="form-control" placeholder="xxx-xx-xxx" aria-label="Account number"></td>
+        <td ><input type="number" class="form-control" placeholder="$" aria-label="Balance" name="balance"></td>
+        <td><button class="btn btn-danger rounded-0" id ="deleteRow"><i class="fa fa-trash"></i></button</td>`;
 
         // Insert the columns inside a row
         newRow.append(cols);
