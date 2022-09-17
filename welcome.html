@@ -44,19 +44,60 @@
 
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Welcome <span class="userName"></span> !</h1>
-  
+    <p class="lead">What would you like to do today?</p>
   </div>
 
   <!-- Action Cards -->
 
   <div class="container">
-    <div class="d-flex justify-content-center">
-      <a href="https://nus-money.herokuapp.com/login"><button type="button" class="btn btn-lg  btn-primary" >Login</button></a>
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">PROFILE</h4>
+        </div>
+        <div class="card-body">
+          <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.flaticon.com/512/639/639365.png" alt="profile"
+            width="72" height="72">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>&nbsp;</li>
+            <li>Savings Profile</li>
+            <li>&nbsp;</li>
+          </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="addaccountButton()">Setup</button>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">CONTRIBUTION</h4>
+        </div>
+        <div class="card-body">
+          <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.flaticon.com/512/901/901455.png"
+            alt="contribution" width="72" height="72">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>&nbsp;</li>
+            <li>Monthly contributions</li>
+            <li>&nbsp;</li>
+          </ul>
+            <button type="button" class="btn btn-lg btn-block btn-primary" onclick="monthlycontButton()">Update</button>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">DASHBOARD</h4>
+        </div>
+        <div class="card-body">
+          <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.flaticon.com/512/2172/2172225.png"
+            alt="dashboard" width="72" height="72">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>&nbsp;</li>
+            <li>View Dashboard</li>
+            <li>&nbsp;</li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block btn-primary" onclick="dashboardButton()">Let's go!</button>
+        </div>
+      </div>
     </div>
-  <!--  <div class="d-flex justify-content-center mt-3">
-      <a href="https://nus-money.herokuapp.com/logout"><button type="button" class="btn btn-lg btn-primary" >Logout</button></a>
-    </div>
-  </div>-->
+
     <!-- Footer -->
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
