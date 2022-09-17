@@ -21,10 +21,10 @@ function homeIconClick() {
 
 
 function renderUser() {
-    $.getJSON('https://nus-money.herokuapp.com/user/1', function (data) {
+    $.getJSON.parse('https://nus-money.herokuapp.com/user', function (data) {
       // JSON result in `data` variable
   
-      var FirstName = data[0].FirstName;
+      var FirstName = data.FirstName;
         
         $(".userName").html(FirstName);
     });
