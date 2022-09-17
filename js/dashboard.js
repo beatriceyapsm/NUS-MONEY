@@ -36,3 +36,4 @@ const myChart = new Chart(
 function homeIconClick() {
   location.href = "/index.html"
 }
+
