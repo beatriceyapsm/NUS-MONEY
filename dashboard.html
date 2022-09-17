@@ -10,7 +10,7 @@
     <title>Dashboard</title>
 
     <!--favicon-->
-    <link href="/ssets/favicon_io/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <link href="/assets/favicon_io/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 
     <!-- Bootstrap core CSS & JS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -72,12 +72,12 @@
             </div>
         </div>
     </div>
-    <!--side bar & fund distribution & pit chart-->
+    <!--side bar & fund distribution & pie chart-->
     <div class="container">
         <div class="row">
             <!--side bar-->
-            <div class="col-md-2">
-                <nav class="nav flex-column">
+            <div class="col col-3">
+                <u1 class="nav nav-pills flex-column mb-auto">
                     <a class="nav-link" href="#"><u>Contribution History</u></a>
                     <a class="nav-link" href="#"><u>Optimizer Calculator</u></a>
                     <a class="nav-link" href="#"><u>Investment Offers</u>​</a>
@@ -85,10 +85,10 @@
                     <a class="nav-link" href="addaccount.html"><u>Update Personal Asset Profile</u></a>
                     <a class="nav-link" href="savehouse.html"><u>Update Saving Goals</u></a>
 
-                </nav>
+                </u1>
             </div>
             <!--fund distribution-->
-            <div class="col-md-auto">
+            <div class="col col-3">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -135,7 +135,7 @@
                 </table>
             </div>
             <!--pie chart-->
-            <div class="col-md-6">
+            <div class="col">
                 <div>
                     <canvas id="myChart"></canvas>
                 </div>
@@ -158,7 +158,7 @@
                         datasets: [{
                             label: 'My First dataset',
                             backgroundColor: [
-                                'rgb(102, 204, 255)', 
+                                'rgb(102, 204, 255)',
                                 'rgb(255, 99, 132)',
                                 'rgb(54, 162, 235)',
                                 'rgb(255, 205, 86)',
