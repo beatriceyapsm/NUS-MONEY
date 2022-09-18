@@ -1,5 +1,5 @@
 
-let userurl = 'http://nus-money.herokuapp.com/user';
+let userurl = 'https://nus-money.herokuapp.com/user';
 userurl = userurl + '?GoogleID=1';
 
 function renderuserdata(e) {
