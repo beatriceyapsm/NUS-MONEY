@@ -5,3 +5,16 @@
 .lh-condensed {
     line-height: 1.25;
 }
+
+.indexBackground {
+    background-color: rgb(90, 181, 184);
+    background-image: url('/assets/Background.jpg');
+    background-repeat: no-repeat;
+    background-size: 1500px;
+    background-position: 0%;
+    background-position-x: center;
+}
+
+.mainDiv{
+    height:600px
+}
