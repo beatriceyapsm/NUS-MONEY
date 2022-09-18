@@ -19,12 +19,17 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
-
     <!-- Custom styles for this template -->
     <link href="/css/styles.css" rel="stylesheet">
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Is the user logged in? -->
+    <script src="/js/authentication.js" onload="isLoggedIn()"></script>
+
 </head>
+
 <body class="bg-light">
 
     <!-- Navbar -->
@@ -57,8 +62,8 @@
             <div class="col-md-7">
                 <div class="progress" weight="30px">
                     <!--function-->
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
                 </div>
             </div>
             <div class="col-md-auto">
@@ -70,7 +75,8 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <p>At this rate, you will be reach your goal in <b style="color:green; font-size: larger;">{x}</b> months</p>
+                <p>At this rate, you will be reach your goal in <b style="color:green; font-size: larger;">{x}</b>
+                    months</p>
             </div>
         </div>
     </div>
@@ -160,7 +166,7 @@
                         datasets: [{
                             label: 'My First dataset',
                             backgroundColor: [
-                                'rgb(102, 204, 255)', 
+                                'rgb(102, 204, 255)',
                                 'rgb(255, 99, 132)',
                                 'rgb(54, 162, 235)',
                                 'rgb(255, 205, 86)',
@@ -170,7 +176,7 @@
                                 'rgb(255, 153, 102)',
                                 'rgb(153, 153, 255)'
                             ],
-                            data: [5, 10, 15, 20, 25, 30, 35,40,45],
+                            data: [5, 10, 15, 20, 25, 30, 35, 40, 45],
                         }]
                     };
 
@@ -178,15 +184,15 @@
                         type: 'pie',
                         data: data,
                         options: {
-                            plugins:{
-                                title:{
+                            plugins: {
+                                title: {
                                     display: true,
-                                    text:'Fund Distribution'
+                                    text: 'Fund Distribution'
                                 },
-                                legend:{
-                                    labels:{
-                                        font:{
-                                            size:14
+                                legend: {
+                                    labels: {
+                                        font: {
+                                            size: 14
                                         }
                                     }
                                 }
