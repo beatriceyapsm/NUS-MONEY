@@ -1,11 +1,14 @@
-
 let userurl = 'https://nus-money.herokuapp.com/user';
 
 //Find logged in user email ID query API
 userurl = userurl + `?Email=${localStorage.getItem('Email')}`;
 
+
+//Table Data
+
 function renderuserdata(e) {
     $.getJSON(userurl, function (data) {
+
         // JSON result in `data` variable
 
         var userdata = data;
@@ -56,8 +59,8 @@ function renderuserdata(e) {
 };
 
 
-// chartArray = [userdata.GoalAmount,userdata.PersonalSavings,userdata.Investment,userdata.Housing,userdata.Insurance,userdata.Mobile,userdata.Transport,userdata.Food,userdata.Others];
-// console.log(chartArray);
+
+//Chart Data
 
 const data = {
     labels: [
