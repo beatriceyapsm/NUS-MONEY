@@ -62,8 +62,13 @@ function goalamt() {
   dprequire.innerHTML = "$ " + downpayment.toFixed(2);
 }
 function totalfunds() {
-  funds = parseFloat(100000) //taken from database
-  dpfunds.innerHTML = "$ " + funds;
+  fetch("https://nus-money.herokuapp.com/user")
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      dpfunds.innerHTML = "$ " + response[0].DownPaymentAllocated;
+    });
 }
 function check() {
   if (downpayment <= funds) {
@@ -73,22 +78,22 @@ function check() {
     ready.innerHTML = "No";
   }
 }
-function diffdate() { 
+function diffdate() {
   var t1 = new Date(document.getElementById('date1').value);
   var t2 = new Date(document.getElementById('date2').value);
-  var diffdays = (t2 - t1)/(24*3600*1000);
+  var diffdays = (t2 - t1) / (24 * 3600 * 1000);
   diffmth = diffdays / 30;
-    if (funds < downpayment) {
-      months.innerHTML = diffmth.toFixed(0) + " Months";
-    }
-    else {
-      months.innerHTML = "You have achieve your goal!";
-    }
+  if (funds < downpayment) {
+    months.innerHTML = diffmth.toFixed(0) + " Months";
+  }
+  else {
+    months.innerHTML = "You have achieve your goal!";
+  }
 }
 function monthcont() {
   if (funds < downpayment) {
-  var addfunds = ((downpayment - funds)/diffmth)
-  reqcont.innerHTML = "$ " + addfunds.toFixed(2)
+    var addfunds = ((downpayment - funds) / diffmth)
+    reqcont.innerHTML = "$ " + addfunds.toFixed(2)
   }
   else {
     reqcont.innerHTML = "You have achieve your goal!"
@@ -106,7 +111,7 @@ function UpdateHouse(e) {
 
   var t1 = new Date(document.getElementById('date1').value);
   var t2 = new Date(document.getElementById('date2').value);
-  var diffdays = (t2 - t1)/(24*3600*1000);
+  var diffdays = (t2 - t1) / (24 * 3600 * 1000);
   var diffmth = diffdays / 30;
 
   let postData = {
@@ -114,16 +119,16 @@ function UpdateHouse(e) {
     "GoalAmount": parseInt(GoalAmount.value),
     "PurchaseDate": PurchaseDate.value,
     "KeyCollectionDate": KeyCollectionDate.value,
-    "DownPaymentRequired": 0.2*parseInt(GoalAmount.value),
+    "DownPaymentRequired": 0.2 * parseInt(GoalAmount.value),
     "MonthstoGoal": diffmth,
-    "MonthlyContribution": (0.2*parseInt(GoalAmount.value)-100000)/diffmth,
-    "Email" : Email
+    "MonthlyContribution": (0.2 * parseInt(GoalAmount.value) - 100000) / diffmth,
+    "Email": Email
   };
 
- // console.log(postData);
- let postDataJSON = JSON.stringify(postData); //Convert JS Object to JSON
- console.log(postDataJSON);
- addData(postDataJSON);
+  // console.log(postData);
+  let postDataJSON = JSON.stringify(postData); //Convert JS Object to JSON
+  console.log(postDataJSON);
+  addData(postDataJSON);
 }
 
 function addData(postData) {
@@ -143,30 +148,31 @@ function addData(postData) {
     .then((response) => response.text())
     .then((result) => window.location.href = "savehouse.html")
     .catch((error) => console.log("error", error));
-  
+
 }
 
 
 function renderuserdata(e) {
   var userurl = 'https://nus-money.herokuapp.com/user?Email=';
   var Email = localStorage.getItem('Email');
-  userurl = userurl + Email;  
+  userurl = userurl + Email;
 
-    $.getJSON(userurl,function (data) {
-      // JSON result in `data` variable
+  $.getJSON(userurl, function (data) {
+    // JSON result in `data` variable
 
-      var userdata = data;
+    var userdata = data;
     console.log(userdata);
 
     userdata.forEach(function (item) {
-    text = `Amount: ${item.GoalAmount}<br>
+      //define date_formatter here 
+      text = `Amount: ${item.GoalAmount}<br>
     Purchase Date: ${item.PurchaseDate}<br>
     Key Collection Date: ${item.KeyCollectionDate}<br>
     DownPayment Required: ${item.DownPaymentRequired}<br>
     Monthly Contribution Required: ${item.MonthlyContribution}<br>`
-  });
-
-      document.getElementById("Currentsaved").innerHTML=text;
     });
-  };
-  addEventListener("load", renderuserdata);
+
+    document.getElementById("Currentsaved").innerHTML = text;
+  });
+};
+addEventListener("load", renderuserdata);
