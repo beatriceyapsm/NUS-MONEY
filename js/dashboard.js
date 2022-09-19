@@ -1,6 +1,6 @@
 
 let userurl = 'https://nus-money.herokuapp.com/user';
-userurl = userurl + '?GoogleID=9';
+userurl = userurl + '?Email='+localStorage.getItem('Email');
 
 function renderuserdata(e) {
     $.getJSON(userurl, function (data) {
@@ -13,7 +13,7 @@ function renderuserdata(e) {
         userdata.forEach(function (item) {
             text = text + `<tr>
         <th scope='row'>Saving towards Goal</th>
-        <td>${item.GoalAmount}</td>
+        <td>${item.SavingsTowardsGoal}</td>
     <tr>
         <th scope='row'>Personal Savings</th>
         <td>${item.PersonalSavings}</td>
@@ -81,70 +81,66 @@ fetch(userurl)
     // when we get a response map the body to json
     .then(response => response.json())
     // and pass the JSON data to mydata for rendering
-    .then(data => captureData(data[0]));
+    .then(data => captureDataPiChart(data[0]));
 
-function captureData(data) {    
+function captureDataPiChart(data1) {    
     // savingsArray.push(data.SavingsTowardsGoal);
-    var savingsArray = [data.SavingsTowardsGoal, data.PersonalSavings, data.Investment, data.Housing, data.Insurance, data.Mobile, data.Transport, data.Food, data.Others];
+    var savingsArray = [data1.SavingsTowardsGoal, data1.PersonalSavings, data1.Investment, data1.Housing, data1.Insurance, data1.Mobile, data1.Transport, data1.Food, data1.Others];
     console.log(savingsArray);
     // return savingsArray;
-}
-
-
-
-
-const labels = [
-    'Saving towards Goal',
-    'Personal Savings',
-    'Investment	',
-    'Housing',
-    'Insurance',
-    'Mobile',
-    'Transport',
-    'Food',
-    'Other'
-];
-
-const data = {
-    labels: labels,
-    datasets: [{
-        label: 'My First dataset',
-        backgroundColor: [
-            'rgb(102, 204, 255)',
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)',
-            'rgb(153, 102, 51)',
-            'rgb(84, 194, 54)',
-            'rgb(194, 54, 182)',
-            'rgb(255, 153, 102)',
-            'rgb(153, 153, 255)'
-        ],
-        data: [5000, 600, 600, 600, 600, 600, 600, 600, 600],
-    }]
-};
-
-const config = {
-    type: 'pie',
-    data: data,
-    options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Fund Distribution'
-            },
-            legend: {
-                labels: {
-                    font: {
-                        size: 14
+    const labels = [
+        'Saving towards Goal',
+        'Personal Savings',
+        'Investment	',
+        'Housing',
+        'Insurance',
+        'Mobile',
+        'Transport',
+        'Food',
+        'Other'
+    ];
+    
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: [
+                'rgb(102, 204, 255)',
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(153, 102, 51)',
+                'rgb(84, 194, 54)',
+                'rgb(194, 54, 182)',
+                'rgb(255, 153, 102)',
+                'rgb(153, 153, 255)'
+            ],
+            data: savingsArray,
+        }]
+    };
+    
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Fund Distribution'
+                },
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        }
                     }
                 }
             }
         }
-    }
-};
-
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-);
+    };
+    
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+}
