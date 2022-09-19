@@ -10,17 +10,19 @@ function getFromServer(e) {
   var querryStr2 = "https://nus-money.herokuapp.com/user?Email=" + uid.value;
   // console.log(querryStr);
   //USING FETCH instead of Jquery
+  fetch(querryStr2)
+  // when we get a response map the body to json
+  .then((response) => response.json())
+  // and pass the JSON data to mydata for rendering
+  .then((data2) => localStorage.setItem('FirstName',JSON.parse(JSON.stringify(data2[0])).FirstName));
+  
   fetch(querryStr)
     // when we get a response map the body to json
     .then((response) => response.json())
     // and pass the JSON data to mydata for rendering
     .then((data) => loginValidation(data));
 
-  fetch(querryStr2)
-      // when we get a response map the body to json
-      .then((response) => response.json())
-      // and pass the JSON data to mydata for rendering
-      .then((data2) => localStorage.setItem('FirstName',JSON.parse(JSON.stringify(data2[0])).FirstName));
+
 }
 
 function loginValidation(data) {
