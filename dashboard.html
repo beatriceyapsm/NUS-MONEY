@@ -127,64 +127,7 @@
                     <canvas id="myChart"></canvas>
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script>
-                    const labels = [
-                        'Saving towards Goal	',
-                        'Personal Savings',
-                        'Investment	',
-                        'Housing',
-                        'Insurance',
-                        'Mobile',
-                        'Transport',
-                        'Food',
-                        'Other'
-                    ];
 
-                    const data = {
-                        labels: labels,
-                        datasets: [{
-                            label: 'My First dataset',
-                            backgroundColor: [
-                                'rgb(102, 204, 255)',
-                                'rgb(255, 99, 132)',
-                                'rgb(54, 162, 235)',
-                                'rgb(255, 205, 86)',
-                                'rgb(153, 102, 51)',
-                                'rgb(84, 194, 54)',
-                                'rgb(194, 54, 182)',
-                                'rgb(255, 153, 102)',
-                                'rgb(153, 153, 255)'
-                            ],
-                            data: [5000, 600, 600, 600, 600, 600, 600, 600, 600],
-                        }]
-                    };
-
-                    const config = {
-                        type: 'pie',
-                        data: data,
-                        options: {
-                            plugins:{
-                                title:{
-                                    display: true,
-                                    text:'Fund Distribution'
-                                },
-                                legend:{
-                                    labels:{
-                                        font:{
-                                            size:14
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    };
-                </script>
-                <script>
-                    const myChart = new Chart(
-                        document.getElementById('myChart'),
-                        config
-                    );
-                </script>
             </div>
         </div>
     </div>
