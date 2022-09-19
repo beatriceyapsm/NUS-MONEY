@@ -76,6 +76,11 @@ function sum() {
 
 }
 
+//**Nithin Handover**
+//Getting data in JSON format for database 'update'
+//Ideally needs a seperate table if use is allowed to enter multiple accounts, but let's not complicate for now. Use the same user table and just add 1 account..
+//Buttton click to submit data to database and move to next page
+
 function updateButton() {
     var val = sum();
     var update = [{ "account_number": val[0], "balance": val[1] }, { "downpayment": val[2] }]

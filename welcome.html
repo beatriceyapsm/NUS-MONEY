@@ -21,9 +21,12 @@
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+<!-- Is the user logged in? -->
+<script src="/js/authentication.js" onload="isLoggedIn()"></script>
+
 </head>
 
-<body>
+<body  onload="catchLocalStorageData()">
 
   <!-- Navbar -->
 
@@ -37,13 +40,13 @@
       <a class="p-2 text-dark" href="#">Support</a>
       <a class="p-2 text-dark" href="#">Pricing</a>
     </nav>
-    <a class="btn btn-outline-primary" href="https://nus-money.herokuapp.com/logout">Log out</a>
+    <a class="btn btn-outline-primary" onclick=logoutButton()>Log out</a>
   </div>
 
   <!-- Title -->
 
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Welcome <span class="userName"></span> !</h1>
+    <h1 class="display-4">Hello <span id="userName"></span> !</h1>
     <p class="lead">What would you like to do today?</p>
   </div>
 
