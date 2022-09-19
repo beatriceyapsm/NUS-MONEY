@@ -6,7 +6,7 @@ const b1 = document.getElementById('b1');
 
 function getFromServer(e) {
   e.preventDefault();
-  var querryStr = "https://nus-money.herokuapp.com/login?Email=" + uid.value + "&FirstName=" + pass.value;
+  var querryStr = "https://nus-money.herokuapp.com/login?email=" + uid.value + "&password=" + pass.value;
   console.log(querryStr);
   //USING FETCH instead of Jquery
   fetch(querryStr)
@@ -20,7 +20,7 @@ function renderhtml(data) {
   console.log(data.success);
   if (data.success == true) {
     //Storing data to local storage for the session
-    localStorage.setItem('FirstName', pass.value);
+    // localStorage.setItem('FirstName', pass.value);
     localStorage.setItem('Email', uid.value);
     //Redirect user to welcome page
     window.location.href = "welcome.html";

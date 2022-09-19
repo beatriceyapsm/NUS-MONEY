@@ -73,6 +73,25 @@ function myFunction() {
 
 function updateButton() {
     var val = sum();
-    var update = [{ "Income": val[0], "SavingsTowardsGoal": val[1], "PersonalSavings": val[2], "Investment": val[3], "Housing": val[4], "Insurance": val[5], "Mobile": val[6],  "Transport": val[7],  "Food": val[8],  "Others": val[9] }]
+    var update = { "Income": val[0], "SavingsTowardsGoal": val[1], "PersonalSavings": val[2], "Investment": val[3], "Housing": val[4], "Insurance": val[5], "Mobile": val[6],  "Transport": val[7],  "Food": val[8],  "Others": val[9], "email": localStorage.getItem('Email') };
+    let updateJSON = JSON.stringify(update);
+    addContribution(updateJSON);
     console.log(update);
+}
+
+function addContribution(postData) {
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body: postData,
+    };
+
+    fetch("https://nus-money.herokuapp.com/update/contribution", requestOptions)
+        .then((response) => response.text())
+        .then(console.log("Monthly Contribution Update Successfull"))
+        .then(document.querySelector("#status").innerHTML = "Update Successfull");
 }

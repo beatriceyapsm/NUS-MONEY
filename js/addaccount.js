@@ -95,23 +95,6 @@ function updateButton() {
     console.log(updateDownpayment);
 }
 
-function addDownpayment(postData) {
-
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var requestOptions = {
-        method: "PUT",
-        headers: myHeaders,
-        body: postData,
-    };
-
-    fetch("http://localhost:3000/update/downpayment", requestOptions)
-        .then((response) => response.text())
-        .then(console.log("Downpayment Update Successfull"))
-        .then(document.querySelector("#status").innerHTML = "Update Successfull");
-}
-
 function addAccount(postData) {
 
     var myHeaders = new Headers();
@@ -123,7 +106,24 @@ function addAccount(postData) {
         body: postData,
     };
 
-    fetch("http://localhost:3000/update/assets", requestOptions)
+    fetch("https://nus-money.herokuapp.com/update/assets", requestOptions)
         .then((response) => response.text())
         .then(console.log("Account Update Successfull"));
+}
+
+function addDownpayment(postData) {
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body: postData,
+    };
+
+    fetch("https://nus-money.herokuapp.com/update/downpayment", requestOptions)
+        .then((response) => response.text())
+        .then(console.log("Downpayment Update Successfull"))
+        .then(document.querySelector("#status").innerHTML = "Update Successfull");
 }
