@@ -5,7 +5,7 @@ function catchLocalStorageData() {
 };
 
 function isLoggedIn() {
-    if (!localStorage.getItem('FirstName')) {
+    if (!localStorage.getItem('email')) {
         location.href = "/login.html"
     }
 };
