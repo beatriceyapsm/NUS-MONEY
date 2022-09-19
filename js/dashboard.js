@@ -73,22 +73,6 @@ function rendertotalContribution(e) {
     };
     addEventListener("load", rendertotalContribution);
 
-//why it is not working?
-
-function rendermonthtosave(e){
-    $.getJSON(userurl,function(data){
-        var userdata=data;
-        console.log(userdata);
-        var text= "<p>hi</p>"
-        userdata.forEach(function(item){
-            text=text + `<P>Month save ${GoalAmount}`
-        });
-        text += "</p>"
-        document.getElementById("monthstosave").innerHTML=text;
-    });
-};
-    addEventListener("load",rendermonthtosave);
-
 //const data = {
 //    labels: [
         'Saving',
