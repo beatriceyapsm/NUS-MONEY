@@ -25,16 +25,18 @@ function logoutButton() {
 }
 
 
+//***NithinnBeatrice - please check. Below code is throwing errors.
+
 //Add name
-function renderUser() {
-    $.getJSON('https://nus-money.herokuapp.com/user', function (data) {
-        // JSON result in `data` variable
+// function renderUser() {
+//     $.getJSON('https://nus-money.herokuapp.com/user', function (data) {
+//         // JSON result in `data` variable
 
-        var FirstName = data['given_name'];
+//         var FirstName = data['given_name'];
 
-        $(".userName").html(FirstName);
-    });
-}
+//         $(".userName").html(FirstName);
+//     });
+// }
 
-addEventListener("load", renderUser);
+// addEventListener("load", renderUser);
 
