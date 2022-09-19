@@ -165,10 +165,9 @@ function renderuserdata(e) {
 
     userdata.forEach(function (item) {
       //define date_formatter here
-      var date=new Date();
       text = `Amount: ${item.GoalAmount}<br>
-    Purchase Date: ${date.toDateString(item.PurchaseDate)}<br>
-    Key Collection Date: ${date.toDateString(item.KeyCollectionDate)}<br>
+    Purchase Date: ${item.PurchaseDate}<br>
+    Key Collection Date: ${(item.KeyCollectionDate)}<br>
     DownPayment Required: ${item.DownPaymentRequired}<br>
     Monthly Contribution Required: ${item.MonthlyContribution}<br>`
     });
