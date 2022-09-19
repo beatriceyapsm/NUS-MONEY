@@ -1,7 +1,7 @@
 
 
 function renderBTO(e) {
-
+  e.preventDefault();
   var text = "BTO";
   var text = '<iframe width="1000" height="400" src="https://www.srx.com.sg/hdb/bto#bto-forecast" title="BTO Indicative Price"></iframe>';
   document.querySelector(".pricingpanel").innerHTML = text;
@@ -14,6 +14,7 @@ function renderBTO(e) {
 
 //  }
 function renderHDB1(e) {
+  e.preventDefault();
   $.getJSON('https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&sort=month%20desc', function (data) {
     // JSON result in `data` variable
 
@@ -33,7 +34,7 @@ function renderHDB1(e) {
 
 
 function renderCondo(e) {
-
+  e.preventDefault();
   var text = '<iframe width="1000" height="400" src="https://www.squarefoot.com.sg/latest-transactions/sale/residential/condominium" title="Condo Indicative Price"></iframe>';
   document.querySelector(".pricingpanel").innerHTML = text;
 
@@ -93,3 +94,68 @@ function monthcont() {
     reqcont.innerHTML = "You have achieve your goal!"
   }
 }
+
+//SAVE DATA TO DB
+
+
+function collectdata() {
+  var acc1 = parseFloat(val0.value) || 0;
+  var bal1 = parseFloat(val1.value) || 0;
+  var downPayment = parseFloat(val2.value) || 0;
+
+  sum1.innerHTML = "$ " + bal1.toFixed(2);
+  sum2.innerHTML = "$ " + downPayment.toFixed(2);
+  sum3.innerHTML = "$ " + (bal1 - downPayment).toFixed(2);
+
+  return [acc1, bal1, downPayment];
+
+}
+/* Put   */
+
+function UpdateHouse(e) {
+  var GoalAmount = document.getElementById('total');
+  var PurchaseDate = document.getElementById('date1');
+  var KeyCollectionDate = document.getElementById('date2');
+  var DownPaymentRequired = document.getElementById('dprequire');
+  var MonthstoGoal = document.getElementById('months');
+  var MonthlyContribution = document.getElementById('reqcont');
+  var Email = localStorage.getItem('Email');
+
+  let postData = {
+    //Create JS Object
+    "GoalAmount": parseInt(GoalAmount.value),
+    "PurchaseDate": PurchaseDate.value,
+    "KeyCollectionDate": KeyCollectionDate.value,
+    "DownPaymentRequired": 0.2*parseInt(GoalAmount.value),
+    "MonthstoGoal": parseInt(MonthstoGoal.value),
+    "MonthlyContribution": MonthlyContribution.value,
+    "Email" : Email
+  };
+
+ // console.log(postData);
+ let postDataJSON = JSON.stringify(postData); //Convert JS Object to JSON
+ console.log(postDataJSON);
+ addData(postDataJSON);
+}
+
+function addData(postData) {
+  // pass your data in method
+  //console.log(postData);
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: postData,
+  };
+
+  fetch("https://nus-money.herokuapp.com/update", requestOptions)
+    .then((response) => response.text())
+    .then((result) => renderhtml(result))
+    .catch((error) => console.log("error", error));
+  
+}
+
+
