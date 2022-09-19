@@ -19,15 +19,15 @@ $(function () {
 
         cols += `<td>
         <select class="form-control" name="Bank" id="bank">
-        <option value="select">Select</option>
-        <option value="dbs">DBS Bank</option>
-        <option value="uob">UOB</option>
-        <option value="citi">Citibank</option>
-        <option value="maybank">Maybank</option>
-        <option value="scb">Standard Chartered</option>
-        <option value="sbi">SBI</option>
-        <option value="cimb">CIMB</option>
-        <option value="ocbc">OCBC</option>
+        <option value="">Select</option>
+        <option value="DBS">DBS Bank</option>
+        <option value="UOB">UOB</option>
+        <option value="Citibank">Citibank</option>
+        <option value="Maybank">Maybank</option>
+        <option value="SCB">Standard Chartered</option>
+        <option value="SBI">SBI</option>
+        <option value="CIMB">CIMB</option>
+        <option value="OCBC">OCBC</option>
         </select>
         </td>
         <td><input type="number" class="form-control" placeholder="xxx-xx-xxx" aria-label="Account number"></td>
@@ -57,10 +57,12 @@ $(function () {
 var val0 = document.getElementById('acc1');
 var val1 = document.getElementById('bal1');
 var val2 = document.getElementById('downPayment');
+var val3 = document.getElementById('bank1');
 
 val0.addEventListener("input", sum);
 val1.addEventListener("input", sum);
 val2.addEventListener("input", sum);
+val3.addEventListener("input", sum);
 
 //Add Category items
 function sum() {
@@ -83,6 +85,45 @@ function sum() {
 
 function updateButton() {
     var val = sum();
-    var update = [{ "account_number": val[0], "balance": val[1] }, { "downpayment": val[2] }]
-    console.log(update);
+    var updateAccount = { "accountname": val3.value, "accountnumber": val[0], "balance": val[1], "email": localStorage.getItem('Email') };
+    var updateDownpayment = { "DownPaymentAllocated": val[2], "email": localStorage.getItem('Email') };
+    let updateAccountJSON = JSON.stringify(updateAccount);
+    let updateDownpaymentJSON = JSON.stringify(updateDownpayment);
+    addAccount(updateAccountJSON);
+    addDownpayment(updateDownpaymentJSON);
+    console.log(updateAccount);
+    console.log(updateDownpayment);
+}
+
+function addDownpayment(postData) {
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body: postData,
+    };
+
+    fetch("http://localhost:3000/update/downpayment", requestOptions)
+        .then((response) => response.text())
+        .then(console.log("Downpayment Update Successfull"))
+        .then(document.querySelector("#status").innerHTML = "Update Successfull");
+}
+
+function addAccount(postData) {
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body: postData,
+    };
+
+    fetch("http://localhost:3000/update/assets", requestOptions)
+        .then((response) => response.text())
+        .then(console.log("Account Update Successfull"));
 }
