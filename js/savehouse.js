@@ -95,31 +95,19 @@ function monthcont() {
   }
 }
 
-//SAVE DATA TO DB
-
-
-function collectdata() {
-  var acc1 = parseFloat(val0.value) || 0;
-  var bal1 = parseFloat(val1.value) || 0;
-  var downPayment = parseFloat(val2.value) || 0;
-
-  sum1.innerHTML = "$ " + bal1.toFixed(2);
-  sum2.innerHTML = "$ " + downPayment.toFixed(2);
-  sum3.innerHTML = "$ " + (bal1 - downPayment).toFixed(2);
-
-  return [acc1, bal1, downPayment];
-
-}
-/* Put   */
-
+//Update DATA TO DB
 function UpdateHouse(e) {
   var GoalAmount = document.getElementById('total');
   var PurchaseDate = document.getElementById('date1');
   var KeyCollectionDate = document.getElementById('date2');
   var DownPaymentRequired = document.getElementById('dprequire');
-  var MonthstoGoal = document.getElementById('months');
   var MonthlyContribution = document.getElementById('reqcont');
   var Email = localStorage.getItem('Email');
+
+  var t1 = new Date(document.getElementById('date1').value);
+  var t2 = new Date(document.getElementById('date2').value);
+  var diffdays = (t2 - t1)/(24*3600*1000);
+  var diffmth = diffdays / 30;
 
   let postData = {
     //Create JS Object
@@ -127,8 +115,8 @@ function UpdateHouse(e) {
     "PurchaseDate": PurchaseDate.value,
     "KeyCollectionDate": KeyCollectionDate.value,
     "DownPaymentRequired": 0.2*parseInt(GoalAmount.value),
-    "MonthstoGoal": parseInt(MonthstoGoal.value),
-    "MonthlyContribution": MonthlyContribution.value,
+    "MonthstoGoal": diffmth,
+    "MonthlyContribution": (0.2*parseInt(GoalAmount.value)-100000)/diffmth,
     "Email" : Email
   };
 
@@ -151,7 +139,7 @@ function addData(postData) {
     body: postData,
   };
 
-  fetch("https://nus-money.herokuapp.com/update", requestOptions)
+  fetch("https://nus-money.herokuapp.com/updatehouse", requestOptions)
     .then((response) => response.text())
     .then((result) => renderhtml(result))
     .catch((error) => console.log("error", error));
