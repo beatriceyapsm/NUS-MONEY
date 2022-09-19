@@ -141,9 +141,32 @@ function addData(postData) {
 
   fetch("https://nus-money.herokuapp.com/updatehouse", requestOptions)
     .then((response) => response.text())
-    .then((result) => renderhtml(result))
+    .then((result) => window.location.href = "savehouse.html")
     .catch((error) => console.log("error", error));
   
 }
 
 
+function renderuserdata(e) {
+  var userurl = 'https://nus-money.herokuapp.com/user?Email=';
+  var Email = localStorage.getItem('Email');
+  userurl = userurl + Email;  
+
+    $.getJSON(userurl,function (data) {
+      // JSON result in `data` variable
+
+      var userdata = data;
+    console.log(userdata);
+
+    userdata.forEach(function (item) {
+    text = `Amount: ${item.GoalAmount}<br>
+    Purchase Date: ${item.PurchaseDate}<br>
+    Key Collection Date: ${item.KeyCollectionDate}<br>
+    DownPayment Required: ${item.DownPaymentRequired}<br>
+    Monthly Contribution Required: ${item.MonthlyContribution}<br>`
+  });
+
+      document.getElementById("Currentsaved").innerHTML=text;
+    });
+  };
+  addEventListener("load", renderuserdata);
