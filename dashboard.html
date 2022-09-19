@@ -45,20 +45,13 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-auto">
-                <p>Last Contribution</p>
-                <!--function-->
-                <p class="text-center">${x}</p>
+                <p class="text-center" id="total_contribution">{x}</p>
             </div>
-            <div class="col-md-auto">
-                <p>Total Contribution</p>
-                <!--function-->
-                <p class="text-center">${x}</p>
-            </div>
-            <div class="col-md-7">
+            <div class="col-md-9">
                 <div class="progress" weight="30px">
                     <!--function-->
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-                        aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
+                        aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%</div>
                 </div>
             </div>
             <div class="col-md-auto">
@@ -70,7 +63,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <p>At this rate, you will be reach your goal in <b style="color:green; font-size: larger;">{x}</b> months</p>
+                <p class="text-center" id="monthstosave">{x}</p>
             </div>
         </div>
     </div>
@@ -170,7 +163,7 @@
                                 'rgb(255, 153, 102)',
                                 'rgb(153, 153, 255)'
                             ],
-                            data: [5, 10, 15, 20, 25, 30, 35,40,45],
+                            data: [5000, 600, 600, 600, 600, 600, 600, 600, 600],
                         }]
                     };
 

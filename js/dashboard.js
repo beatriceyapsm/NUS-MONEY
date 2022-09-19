@@ -57,6 +57,37 @@ function renderuserdata(e) {
   };
   addEventListener("load", renderuserdata);
 
+function rendertotalContribution(e) {
+    $.getJSON(userurl,function (data) {
+      // JSON result in `data` variable
+
+      var userdata = data;
+    console.log(userdata);
+
+    var text= "<p>Total Contribution</p>"
+    userdata.forEach(function(item){
+        text=text + `<p class="text-center">${item.GoalAmount}`});
+        text += "</p>"
+        document.getElementById("total_contribution").innerHTML=text;
+    });
+    };
+    addEventListener("load", rendertotalContribution);
+
+//why it is not working?
+
+function rendermonthtosave(e){
+    $.getJSON(userurl,function(data){
+        var userdata=data;
+        console.log(userdata);
+        var text= "<p>hi</p>"
+        userdata.forEach(function(item){
+            text=text + `<P>Month save ${GoalAmount}`
+        });
+        text += "</p>"
+        document.getElementById("monthstosave").innerHTML=text;
+    });
+};
+    addEventListener("load",rendermonthtosave);
 
 //const data = {
 //    labels: [
