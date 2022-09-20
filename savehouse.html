@@ -43,33 +43,39 @@
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="https://img.icons8.com/dusk/344/home.png" alt="" width="72" height="72" />
       <h2>Saving Towards a House</h2>
-      <p><a href="#indprice">Indicative Pricing</a></p>
-      <p><b>Current Saved Goal</b><div id="Currentsaved"></div></p>
-      
-      <div class="form-group"></div>
-      <div class="col-lg-7 mx-auto">
-        <div class="form-group">
+      <div class="row">
+
+        <div class="col-md-5 order-md-2">
+          <br>
+          <p><a href="#indprice">Indicative Pricing</a></p>
+          <p><b>Current Saved Goal</b>
+          <div id="Currentsaved"></div>
+          </p>
+          <!-- <div class="form-group"></div> -->
+        </div>
+
+        
+        <div class="col-md-7 order-md-1">
           <form style="text-align: center">
-<p><b>Set A New Goal</b></p>
-            <div class="form-group row">
-              <label for="income" class="col-sm-2 col-form-label">Amount:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="total" min="1" placeholder="$">
-              </div>
-            </div>
-            <label for="Date1">Date to Purchase:</label>
-            <input type="Date" id="date1" name="Date1" placeholder="Date" />
-            <br />
-            <label for="Date2">Date to Collect Keys:</label>
-            <input type="Date" id="date2" name="Date2" placeholder="Date" />
-            <br />
-
-
+            <br>
+            <p><b>Set A New Goal</b></p>
 
             <!--  Bootstrap table-->
             <div class="table-responsive">
-              <table class="table text-center">
+              <table class="table text-center table-sm">
                 <tbody>
+                  <tr>
+                    <td scope="row"><label for="income" class="">Purchase Amount:</label></td>
+                    <td><input type="text" class="form-control" id="total" min="1" placeholder="$"></td>
+                  </tr>
+                  <tr>
+                    <td scope="row" for="Date1">Date to Purchase:</td>
+                    <td><input type="Date" id="date1" name="Date1" placeholder="Date" /></td>
+                  </tr>
+                  <tr>
+                    <td scope="row" for="Date2">Date to Collect Keys:</td>
+                    <td><input type="Date" id="date2" name="Date2" placeholder="Date" /></td>
+                  </tr>
                   <tr>
                     <td scope="row">Down Payment Required</td>
                     <td><label for="input" id="dprequire"></label></td>
@@ -98,30 +104,32 @@
                 </tbody>
               </table>
             </div>
-            <button type="button" class="btn btn-outline-primary w-25" onclick=NextMonthlyCon()>Next</button>
-            <button type="button" class="btn btn-primary w-25" onclick=UpdateHouse()>Save</button>
-            <p ><div id="infosaved" class="text-success"></div></p>
           </form>
         </div>
-        <br><br>
+      </div>
+      <br><br>
 
+      <div class="col-lg-15 mx-auto">
+        <button type="button" class="btn btn-outline-primary w-25" onclick=NextMonthlyCon()>Next</button>
+        <button type="button" class="btn btn-primary w-25" onclick=UpdateHouse()>Save</button>
+        <p>
+        <div id="infosaved" class="text-success"></div>
+        </p>
+        <br>
+        <p class="lead" id="indprice">Indicative Pricing By House Type</p>
+        <div class="mx-auto">
+          <button type="button" class="btn btn-primary w-25" id="BTO">BTO</button>
+          <button type="button" class="btn btn-primary w-25" id="HDB">HDB</button>
+          <button type="button" class="btn btn-primary w-25" id="Condo">Condo</button>
+        </div>
+        <div class="pricingpanel"></div>
       </div>
-      
-      <p class="lead" id="indprice">Indicative Pricing By House Type</p>
-      <div class="col-lg-7 mx-auto">
-        <button type="button" class="btn btn-primary w-25" id="BTO">BTO</button>
-        <button type="button" class="btn btn-primary w-25" id="HDB">HDB</button>
-        <button type="button" class="btn btn-primary w-25" id="Condo">Condo</button>
-      </div>
-      <div class="pricingpanel">
-
-      </div>
+      <script src="/js/savehouse.js"></script>
+      <script src="/js/script.js"></script>
     </div>
 
   </div>
 
-  <script src="/js/savehouse.js"></script>
-  <script src="/js/script.js"></script>
 </body>
 
 </html>
