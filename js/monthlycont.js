@@ -89,6 +89,5 @@ function addContribution(postData) {
     fetch("https://nus-money.herokuapp.com/update/contribution", requestOptions)
         .then((response) => response.text())
         .then(console.log("Monthly Contribution Update Successful"))
-        .then(document.querySelector("#status").innerHTML = "Update Successful")
-        .then(location.href = "/dashboard.html");
+        .then(document.querySelector("#status").innerHTML = "Update Successful!");
 }
