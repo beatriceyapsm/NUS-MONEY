@@ -21,8 +21,6 @@ function getFromServer(e) {
     .then((response) => response.json())
     // and pass the JSON data to mydata for rendering
     .then((data) => loginValidation(data));
-
-
 }
 
 function loginValidation(data) {

@@ -108,7 +108,7 @@ function addAccount(postData) {
 
     fetch("https://nus-money.herokuapp.com/update/assets", requestOptions)
         .then((response) => response.text())
-        .then(console.log("Account Update Successfull"));
+        .then(console.log("Account Update Successful"));
 }
 
 function addDownpayment(postData) {
