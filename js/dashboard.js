@@ -67,7 +67,7 @@ function rendertotalContribution(e) {
 
 
         userdata.forEach(function (item) {
-            var Currentcont= item.DownPaymentAllocated+item.MonthlyContribution;
+            var Currentcont= item.DownPaymentAllocated+item.SavingsTowardsGoal;
             var Percentagec= (Currentcont/item.GoalAmount*100).toFixed(2);
             text = `
             <div class='col-md-auto'>
