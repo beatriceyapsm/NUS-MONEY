@@ -66,10 +66,6 @@ function myFunction() {
     prcnt9.innerHTML = "";
 }
 
-//**Nithin Handover**
-//Getting data in JSON format for database 'update'
-//No column for SavingsTowardsGoal - needs to be added.
-//Buttton click to submit data to database and move to next page
 
 function updateButton() {
     var val = sum();
