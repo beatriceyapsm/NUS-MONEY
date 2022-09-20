@@ -194,3 +194,7 @@ addEventListener("load", renderuserdata);
 function rendersuccess() {
   infosaved.innerHTML = "Information Saved!";
 } ;
+
+function NextMonthlyCon() {
+  location.href = "/monthlycont.html"
+}
