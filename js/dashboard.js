@@ -78,7 +78,7 @@ function rendertotalContribution(e) {
                     <div class='progress' weight='30px'>
                         <!--function-->
                         <div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75'
-                            aria-valuemin='0' aria-valuemax='100' style='width: ${Percentage1}'>${Percentagec}%</div>
+                            aria-valuemin='0' aria-valuemax='100' style='width: ${Percentagec}'>${Percentagec}%</div>
                     </div>
                 </div>
             `
