@@ -27,6 +27,8 @@ function logoutButton() {
 
 function delButton() {
     var Email = localStorage.getItem('Email');
+    localStorage.removeItem('FirstName');
+    localStorage.removeItem('Email');
     let postData = {
         //Create JS Object
         "email": Email
@@ -53,8 +55,6 @@ function delData(postData) {
     
       fetch("https://nus-money.herokuapp.com/delete/user/", requestOptions)
         .then((response) => response.text())
-        .then((result) =>  localStorage.removeItem('FirstName'))
-        .then((result) =>  localStorage.removeItem('Email'))
         .then((result) =>  location.href = "/index.html");
     
     
