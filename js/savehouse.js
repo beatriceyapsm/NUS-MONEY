@@ -107,7 +107,7 @@ function diffdate() {
   today = new Date(mm + '/' + dd + '/' + yyyy);
   console.log(today);
   console.log(t1-today);
-  var diffdays = (t1 - today) / (24 * 3600 * 1000);
+  var diffdays = (t2 - today) / (24 * 3600 * 1000);
   diffmth = diffdays / 30;
   if (funds < downpayment) {
     months.innerHTML = diffmth.toFixed(0) + " Months";
