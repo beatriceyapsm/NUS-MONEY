@@ -48,15 +48,15 @@ function delData(postData) {
     
       var requestOptions = {
         method: "DELETE",
-        mode: 'cors',
         headers: myHeaders,
         body: postData,
       };
     
-      fetch("https://nus-money.herokuapp.com/delete/user/", requestOptions)
+      fetch("https://nus-money.herokuapp.com/delete/user/", requestOptions);
+      fetch("https://nus-money.herokuapp.com/delete/user1/", requestOptions);        
+        fetch("https://nus-money.herokuapp.com/delete/user2/", requestOptions)
         .then((response) => response.text())
         .then((result) =>  location.href = "/index.html");
-    
     
 }
 
