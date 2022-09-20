@@ -37,7 +37,7 @@ function delButton() {
       delData(postDataJSON);
     }
     
-    function delData(postData) {
+function delData(postData) {
       // pass your data in method
       //console.log(postData);
     
@@ -46,12 +46,15 @@ function delButton() {
     
       var requestOptions = {
         method: "DELETE",
+        mode: 'cors',
         headers: myHeaders,
         body: postData,
       };
     
       fetch("https://nus-money.herokuapp.com/delete/user/", requestOptions)
         .then((response) => response.text())
+        .then((result) =>  localStorage.removeItem('FirstName'))
+        .then((result) =>  localStorage.removeItem('Email'))
         .then((result) =>  location.href = "/index.html");
     
     
