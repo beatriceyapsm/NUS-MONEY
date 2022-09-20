@@ -70,13 +70,18 @@ function goalamt() {
 
 
 function totalfunds() {
-  fetch("https://nus-money.herokuapp.com/user")
-   .then((response) => {
-     return response.json();
-   })
-   .then((response) => {
-     dpfunds.innerHTML = "$ " + response[0].DownPaymentAllocated;
-     funds = parseFloat(response[0].DownPaymentAllocated) ;
+  var userurl = 'https://nus-money.herokuapp.com/user?Email=';
+  var Email = localStorage.getItem('Email');
+  userurl = userurl + Email;
+
+  $.getJSON(userurl, function (data) {
+    // JSON result in `data` variable
+
+    var userdata = data;
+    console.log(userdata);
+
+    dpfunds.innerHTML = "$ " + userdata[0].DownPaymentAllocated;
+     funds = parseFloat(userdata[0].DownPaymentAllocated) ;
       check();
       diffdate();
       monthcont();
