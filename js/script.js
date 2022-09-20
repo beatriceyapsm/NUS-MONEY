@@ -25,6 +25,36 @@ function logoutButton() {
 }
 
 
-
+function delButton() {
+    var Email = localStorage.getItem('Email');
+    let postData = {
+        //Create JS Object
+        "email": Email
+      };
+      
+      let postDataJSON = JSON.stringify(postData); //Convert JS Object to JSON
+      console.log(postDataJSON);
+      delData(postDataJSON);
+    }
+    
+    function delData(postData) {
+      // pass your data in method
+      //console.log(postData);
+    
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+    
+      var requestOptions = {
+        method: "DELETE",
+        headers: myHeaders,
+        body: postData,
+      };
+    
+      fetch("https://nus-money.herokuapp.com/delete/user", requestOptions)
+        .then((response) => response.text())
+        .then((result) =>  location.href = "/index.html");
+    
+    
+}
 
 
