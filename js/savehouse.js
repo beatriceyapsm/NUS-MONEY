@@ -94,7 +94,15 @@ function check() {
 function diffdate() {
   var t1 = new Date(document.getElementById('date1').value);
   var t2 = new Date(document.getElementById('date2').value);
-  var diffdays = (t2 - t1) / (24 * 3600 * 1000);
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = new Date(mm + '/' + dd + '/' + yyyy);
+  console.log(today);
+  console.log(t1-today);
+  var diffdays = (t1 - today) / (24 * 3600 * 1000);
   diffmth = diffdays / 30;
   if (funds < downpayment) {
     months.innerHTML = diffmth.toFixed(0) + " Months";
