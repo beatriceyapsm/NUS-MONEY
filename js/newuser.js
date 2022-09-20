@@ -54,7 +54,7 @@ function loginValidation(data) {
     fetch(querryUser, requestOptions)
       .then((response) => response.text())
       .catch((error) => console.log("error", error));
-    var successText = "<h9>Account Creation Successful</h9>"
+    var successText = "<h9>Account Creation Successful. <a href='login.html'>Proceed to login.</a></h9>"
     document.querySelector(".mypanel").innerHTML = successText;
   }
 }
