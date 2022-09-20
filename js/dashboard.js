@@ -68,7 +68,8 @@ function rendertotalContribution(e) {
 
         userdata.forEach(function (item) {
             var Currentcont= item.DownPaymentAllocated+item.SavingsTowardsGoal;
-            var Percentagec= (Currentcont/item.DownPaymentRequired*100).toFixed(2);
+            var Percentage1= Currentcont/item.DownPaymentRequired;
+            var Percentagec= (Percentage1*100).toFixed(2);
             text = `
             <div class='col-md-auto'>
                     <p class='text-center'><p>Current Contributions/Goal</p><p class='text-center'>${Currentcont}/${item.DownPaymentRequired}</p></p>
@@ -77,7 +78,7 @@ function rendertotalContribution(e) {
                     <div class='progress' weight='30px'>
                         <!--function-->
                         <div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75'
-                            aria-valuemin='0' aria-valuemax='100' style='width: ${Currentcont}'>${Percentagec}%</div>
+                            aria-valuemin='0' aria-valuemax='100' style='width: ${Percentage1}'>${Percentagec}%</div>
                     </div>
                 </div>
             `
