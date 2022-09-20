@@ -63,11 +63,25 @@ function rendertotalContribution(e) {
         var userdata = data;
         console.log(userdata);
 
-        var text = "<p>Total Contribution</p>"
+        var text = ""
+
+
         userdata.forEach(function (item) {
-            text = text + `<p class="text-center">${item.GoalAmount}`
+            var Currentcont= item.DownPaymentAllocated+item.MonthlyContribution;
+            var Percentagec= (Currentcont/item.GoalAmount*100).toFixed(2);
+            text = `
+            <div class='col-md-auto'>
+                    <p class='text-center'><p>Current Contributions/Goal</p><p class='text-center'>${Currentcont}/${item.GoalAmount}</p></p>
+                </div>
+                <div class='col-md-9'>
+                    <div class='progress' weight='30px'>
+                        <!--function-->
+                        <div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75'
+                            aria-valuemin='0' aria-valuemax='100' style='width: ${Currentcont}'>${Percentagec}%</div>
+                    </div>
+                </div>
+            `
         });
-        text += "</p>"
         document.getElementById("total_contribution").innerHTML = text;
     });
 };

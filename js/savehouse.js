@@ -100,7 +100,7 @@ function diffdate() {
     months.innerHTML = diffmth.toFixed(0) + " Months";
   }
   else {
-    months.innerHTML = "You have achieve your goal!";
+    months.innerHTML = "NA";
   }
 }
 function monthcont() {
@@ -109,7 +109,7 @@ function monthcont() {
     reqcont.innerHTML = "$ " + addfunds.toFixed(2)
   }
   else {
-    reqcont.innerHTML = "You have achieve your goal!"
+    reqcont.innerHTML = "NA"
   }
 }
 
