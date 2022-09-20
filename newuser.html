@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/assets/favicon_io/favicon.ico">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Signin to NUS Money</title>
+    <title>Create Account</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
@@ -21,22 +21,21 @@
   <body class="text-center">
     <form class="form-signin">
       <img class="mb-4" src="/assets/NUS_MONEY-icon.png" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <label for="inputFirstName" class="sr-only">First Name</label>
+      <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus>
+      <label for="inputLastName" class="sr-only">Last Name</label>
+      <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" required>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
       <div class="small text-muted mypanel"></div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" id="b1">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" id="b1">Register</button>
       <div class="small text-muted mypanel"></div>
-      <div class="small text-muted">Don't have an account? <a href="newuser.html" class="link-info">Register here</a></div>
+      <div class="small text-muted">Existing customer <a href="login.html" class="link-info">Log In</a></div>
       <p class="mt-5 mb-3 text-muted">&copy; NUS Money 2022</p>
     </form>
-    <script src="/js/login.js"></script>
+    <script src="/js/newuser.js"></script>
   </body>
 </html>
