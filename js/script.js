@@ -50,7 +50,7 @@ function delButton() {
         body: postData,
       };
     
-      fetch("https://nus-money.herokuapp.com/delete/user", requestOptions)
+      fetch("https://nus-money.herokuapp.com/delete/user/", requestOptions)
         .then((response) => response.text())
         .then((result) =>  location.href = "/index.html");
     
