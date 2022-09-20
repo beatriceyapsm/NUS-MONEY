@@ -29,7 +29,6 @@ function loginValidation(data) {
   console.log(data.success);
   if (data.success == true) {
     //Storing data to local storage for the session
-    // localStorage.setItem('FirstName', pass.value);
     localStorage.setItem('Email', uid.value);
     //Redirect user to welcome page
     window.location.href = "welcome.html";
@@ -42,22 +41,3 @@ function loginValidation(data) {
 
 
 b1.addEventListener('click', getFromServer);
-
-// //API URL
-// let url = 'https://nus-money.herokuapp.com/Bea';
-
-// //Fetch user's FirstName from data
-// fetch(url).then(function (response) {
-//   return response.json();
-// }).then(function (data) {
-//   console.log(data);
-//   localStorage.setItem('name', data.data.FirstName);
-// }).catch(function () {
-//   console.log("There was an error in the auth script");
-// });
-
-// // function catchLocalStorageData() {
-// //     userName.innerHTML = localStorage.getItem('name');
-// //     console.log(localStorage.getItem('name'));
-// // }
-
