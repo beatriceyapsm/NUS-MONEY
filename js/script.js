@@ -25,18 +25,36 @@ function logoutButton() {
 }
 
 
-//***NithinnBeatrice - please check. Below code is throwing errors.
+function delButton() {
+    var Email = localStorage.getItem('Email');
+    let postData = {
+        //Create JS Object
+        "email": Email
+      };
+      // console.log(postData);
+      let postDataJSON = JSON.stringify(postData); //Convert JS Object to JSON
+      console.log(postDataJSON);
+      addData(postDataJSON);
+    }
+    
+    function addData(postData) {
+      // pass your data in method
+      //console.log(postData);
+    
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+    
+      var requestOptions = {
+        method: "DELETE",
+        headers: myHeaders,
+        body: postData,
+      };
+    
+      fetch("https://nus-money.herokuapp.com/delete/user", requestOptions)
+        .then((response) => response.text())
+        .then((result) =>  location.href = "/index.html");
+    
+    
+}
 
-//Add name
-// function renderUser() {
-//     $.getJSON('https://nus-money.herokuapp.com/user', function (data) {
-//         // JSON result in `data` variable
-
-//         var FirstName = data['given_name'];
-
-//         $(".userName").html(FirstName);
-//     });
-// }
-
-// addEventListener("load", renderUser);
 
