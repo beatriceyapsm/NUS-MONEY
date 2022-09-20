@@ -125,5 +125,5 @@ function addDownpayment(postData) {
     fetch("https://nus-money.herokuapp.com/update/downpayment", requestOptions)
         .then((response) => response.text())
         .then(console.log("Downpayment Update Successfull"))
-        .then(document.querySelector("#status").innerHTML = "Update Successfull");
+        .then(document.querySelector("#status").innerHTML = "Update Successful");
 }
