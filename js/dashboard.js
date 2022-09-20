@@ -68,10 +68,10 @@ function rendertotalContribution(e) {
 
         userdata.forEach(function (item) {
             var Currentcont= item.DownPaymentAllocated+item.SavingsTowardsGoal;
-            var Percentagec= (Currentcont/item.GoalAmount*100).toFixed(2);
+            var Percentagec= (Currentcont/item.DownPaymentRequired*100).toFixed(2);
             text = `
             <div class='col-md-auto'>
-                    <p class='text-center'><p>Current Contributions/Goal</p><p class='text-center'>${Currentcont}/${item.GoalAmount}</p></p>
+                    <p class='text-center'><p>Current Contributions/Goal</p><p class='text-center'>${Currentcont}/${item.DownPaymentRequired}</p></p>
                 </div>
                 <div class='col-md-9'>
                     <div class='progress' weight='30px'>
