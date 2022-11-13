@@ -70,7 +70,7 @@ function goalamt() {
 
 
 function totalfunds() {
-  var userurl = 'https://nus-money.herokuapp.com/user?Email=';
+  var userurl = 'https://nusmoneybe.onrender.com/user?Email=';
   var Email = localStorage.getItem('Email');
   userurl = userurl + Email;
 
@@ -178,7 +178,7 @@ function addData(postData) {
     body: postData,
   };
 
-  fetch("https://nus-money.herokuapp.com/updatehouse", requestOptions)
+  fetch("https://nusmoneybe.onrender.com/updatehouse", requestOptions)
     .then((response) => response.text())
     .then((result) => {renderuserdata(), rendersuccess()});
 
@@ -186,7 +186,7 @@ function addData(postData) {
 
 
 function renderuserdata(e) {
-  var userurl = 'https://nus-money.herokuapp.com/user?Email=';
+  var userurl = 'https://nusmoneybe.onrender.com/user?Email=';
   var Email = localStorage.getItem('Email');
   userurl = userurl + Email;
 

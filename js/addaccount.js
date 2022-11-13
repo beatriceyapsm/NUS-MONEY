@@ -106,7 +106,7 @@ function addAccount(postData) {
         body: postData,
     };
 
-    fetch("https://nus-money.herokuapp.com/update/assets", requestOptions)
+    fetch("https://nusmoneybe.onrender.com/update/assets", requestOptions)
         .then((response) => response.text())
         .then(console.log("Account Update Successful"));
 }
@@ -122,7 +122,7 @@ function addDownpayment(postData) {
         body: postData,
     };
 
-    fetch("https://nus-money.herokuapp.com/update/downpayment", requestOptions)
+    fetch("https://nusmoneybe.onrender.com/update/downpayment", requestOptions)
         .then((response) => response.text())
         .then(console.log("Downpayment Update Successfull"))
         .then(document.querySelector("#status").innerHTML = "Update Successful");

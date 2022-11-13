@@ -6,8 +6,8 @@ const b1 = document.getElementById('b1');
 
 function getFromServer(e) {
   e.preventDefault();
-  var querryStr = "https://nus-money.herokuapp.com/login?email=" + uid.value + "&password=" + pass.value;
-  var querryStr2 = "https://nus-money.herokuapp.com/user?Email=" + uid.value;
+  var querryStr = "https://nusmoneybe.onrender.com/login?email=" + uid.value + "&password=" + pass.value;
+  var querryStr2 = "https://nusmoneybe.onrender.com/user?Email=" + uid.value;
   // console.log(querryStr);
   //USING FETCH instead of Jquery
   fetch(querryStr2)

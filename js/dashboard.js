@@ -1,5 +1,5 @@
 
-let userurl = 'https://nus-money.herokuapp.com/user';
+let userurl = 'https://nusmoneybe.onrender.com/user';
 userurl = userurl + '?Email='+localStorage.getItem('Email');
 
 function renderuserdata(e) {
