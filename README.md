@@ -1,7 +1,7 @@
 # NUS Money Frontend
 
 Link: https://nus-money.netlify.app/ 
-(Note: it takes a short while - approx 5 sec - to wake up if you're trying register/login functions)
+(Note: it takes a short while - approx 10 sec - to wake up if you're trying register/login functions)
 
 Welcome to our NUS FinTech Developers Toolkit - API project.
 
